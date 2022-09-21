@@ -1,0 +1,58 @@
+<template>
+    <div>
+        <MazBtn to="/questions/1" no-underline>
+            Start Test
+        </MazBtn>
+        <aside :class="{'dark': hasDarkTheme}">
+            Please read each question and choose the answer 0,1,2, or 3 that best describes you. 0 being not at all and
+            3 being very much.
+        </aside>
+        <details>
+            <summary>
+                Questionnaire Reference
+            </summary>
+            <p>Questionnaire DASS21 Prof Peter Lovibond UNSW Australia.
+                <a href=" http://www2.psy.unsw.edu.au/dass/
+                ">
+                    http://www2.psy.unsw.edu.au/dass/
+                </a>
+            </p>
+        </details>
+    </div>
+
+</template>
+
+<script setup>
+import MazBtn from 'maz-ui/components/MazBtn'
+import { useThemeHandler } from 'maz-ui'
+const { hasDarkTheme } = useThemeHandler();
+</script>
+
+<style scoped>
+div {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    min-height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+aside,
+details {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    max-width: 24rem;
+    padding: 1rem;
+    border-radius: 15px;
+    color: var(--maz-color-muted-light);
+    background-color: var(--maz-bg-color-light-light);
+}
+
+.dark {
+    background-color: var(--maz-bg-color-dark);
+    color: var(--maz-color-white);
+
+}
+</style>
