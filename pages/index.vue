@@ -18,14 +18,32 @@
                 </a>
             </p>
         </details>
+        <MazDialog v-model="isOpen">
+            <div class="maz-text-center maz-w-full maz-p-4">
+                I give you a 🍪, you give me back, so you won't lose progress when refreshing.
+            </div>
+            <template #footer>
+                <MazBtn color="info" @click="isOpen = false">
+                    Ok I got it.
+                </MazBtn>
+            </template>
+        </MazDialog>
     </div>
 
 </template>
 
 <script setup>
 import MazBtn from 'maz-ui/components/MazBtn'
+import MazDialog from 'maz-ui/components/MazDialog'
 import { useThemeHandler } from 'maz-ui'
 const { hasDarkTheme } = useThemeHandler();
+const isOpen = ref(false)
+
+onMounted(() => {
+    setTimeout(() => {
+        isOpen.value = true
+    }, 2000)
+})
 </script>
 
 <style scoped>

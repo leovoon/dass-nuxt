@@ -2,17 +2,17 @@ export default function () {
   return useState('questions', () => [
     {
       id: 1,
-      text: 'I found it hard to wind down',
+      text: 'I found it hard to wind down.',
       category: 'stress',
     },
     {
       id: 2,
-      text: 'I was aware of dryness of my mouth?',
+      text: 'I was aware of dryness of my mouth.',
       category: 'anxiety',
     },
     {
       id: 3,
-      text: 'I could not seem to experience any positive feeling at all?',
+      text: 'I could not seem to experience any positive feeling at all.',
       category: 'depress',
     },
     {
