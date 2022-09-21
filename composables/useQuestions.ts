@@ -7,12 +7,12 @@ export default function () {
     },
     {
       id: 2,
-      text: 'I was aware of dryness of my mouth?',
+      text: 'I was aware of dryness of my mouth',
       category: 'anxiety',
     },
     {
       id: 3,
-      text: 'I could not seem to experience any positive feeling at all?',
+      text: 'I could not seem to experience any positive feeling at all.',
       category: 'depress',
     },
     {
