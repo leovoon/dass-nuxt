@@ -51,11 +51,12 @@ const getColor = (level) => {
 
 const redo = async () => {
     const cookie = useCookie('answered');
+    const answered = useAnswered()
     if (cookie) {
         cookie.value = null
+        answered.value = []
     }
-    await refreshNuxtData()
-    await navigateTo('/questions/1')
+    await navigateTo('/questions/1', { replace: true })
 }
 </script>
 
