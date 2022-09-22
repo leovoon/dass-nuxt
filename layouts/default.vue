@@ -8,7 +8,7 @@
         <div>
             <header>
                 <h2>DASS</h2>
-                <p>Depression, Anxiety, Depression Scale 21</p>
+                <p>Depression, Anxiety, Stress Scale 21</p>
             </header>
             <nav>
                 <MazBtn color="primary" size="sm" to="/">Home</MazBtn>
