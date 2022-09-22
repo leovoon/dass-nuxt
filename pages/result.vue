@@ -4,7 +4,7 @@
 
         <section>
             <div class="card" :class="{'dark': hasDarkTheme}" v-for="{ category, level } in result">
-                <img :src="`/assets/${level}.png`" :alt="level" />
+                <img :src="`/emotion/${level.toLowerCase()}.png`" :alt="level" />
                 <div class="description">
                     <h2>{{ category }}</h2>
                     <MazBadge pastel class="level" :color="getColor(level)">
