@@ -3,4 +3,7 @@ export default defineNuxtConfig({
   css: ['maz-ui/css/main.css', '@/assets/main.css'],
 
   transpile: ['maz-ui'],
+  build: {
+    analyze: true,
+  },
 })

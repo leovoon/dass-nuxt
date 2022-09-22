@@ -23,7 +23,7 @@
                 I give you a 🍪, you give me back, so you won't lose progress when refreshing.
             </div>
             <template #footer>
-                <MazBtn color="info" @click="isOpen = false">
+                <MazBtn color="info" @click="handleOk">
                     Ok I got it.
                 </MazBtn>
             </template>
@@ -39,11 +39,23 @@ import { useThemeHandler } from 'maz-ui'
 const { hasDarkTheme } = useThemeHandler();
 const isOpen = ref(false)
 
+const cookieConsent = useCookie('cookieConsent')
+
+const handleOk = () => {
+    cookieConsent.value = true
+    isOpen.value = false
+}
+
+
 onMounted(() => {
-    setTimeout(() => {
-        isOpen.value = true
-    }, 2000)
+    if (!cookieConsent.value) {
+        setTimeout(() => {
+            isOpen.value = true
+        }, 2000)
+    }
+
 })
+
 </script>
 
 <style scoped>
