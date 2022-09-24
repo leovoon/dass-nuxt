@@ -17,17 +17,36 @@
         <MazBtn size="lg" pastel block color="primary" @click="redo()">
             Redo
         </MazBtn>
+        <MazDialog v-model="isOpen">
+            <div class="maz-text-center maz-w-full maz-p-4">
+                This will clear your saved result. Are you sure?
+            </div>
+            <template #footer>
+                <MazBtn color="warning" @click="handleRedo()">
+                    Yes
+                </MazBtn>
+            </template>
+        </MazDialog>
+
     </div>
 </template>
 
 <script setup>
 import MazBadge from "maz-ui/components/MazBadge";
 import MazBtn from "maz-ui/components/MazBtn";
+import MazDialog from 'maz-ui/components/MazDialog';
 import { useThemeHandler } from "maz-ui";
 
 definePageMeta({
     middleware: ["protected"],
 })
+
+const isOpen = ref(false)
+
+const handleRedo = () => {
+    isOpen.value = false
+    window.location.href = '/questions/1'
+}
 
 const result = useMeaning();
 const { hasDarkTheme } = useThemeHandler();
@@ -49,14 +68,14 @@ const getColor = (level) => {
     }
 };
 
-const redo = async () => {
+const redo = () => {
     const cookie = useCookie('answered');
     const answered = useAnswered()
     if (cookie) {
         cookie.value = null
         answered.value = []
     }
-    await navigateTo('/questions/1', { replace: true })
+    isOpen.value = true
 }
 </script>
 
