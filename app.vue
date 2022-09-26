@@ -30,8 +30,6 @@ useHead({
       href: '/favicon.ico',
     },
   ],
-
-
 })
 
 </script>
