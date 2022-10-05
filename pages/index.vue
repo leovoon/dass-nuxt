@@ -4,7 +4,7 @@
             Start Test
         </MazBtn>
 
-        <MazBtn v-if="result" pastel color="warning" class="maz-mt-2" to="/result" no-underline>
+        <MazBtn v-if="result" :pastel="!hasDarkTheme" color="warning" class="maz-mt-2" to="/result" no-underline>
             Show Previous Result
         </MazBtn>
 
