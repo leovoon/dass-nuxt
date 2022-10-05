@@ -14,7 +14,7 @@
                 This will clear your saved result. Are you sure?
             </div>
             <template #footer>
-                <MazBtn color="warning" @click="handleRedo()">
+                <MazBtn color="warning" @click="confirmRedo()">
                     Yes
                 </MazBtn>
             </template>
@@ -31,22 +31,23 @@ definePageMeta({
     middleware: ["protected"],
 })
 
+const result = useMeaning();
 const isOpen = ref(false)
 
-const handleRedo = () => {
-    isOpen.value = false
-    window.location.href = '/questions/1'
-}
-
-const result = useMeaning();
-
-const redo = () => {
+const confirmRedo = () => {
     const cookie = useCookie('answered');
     const answered = useAnswered()
     if (cookie) {
         cookie.value = null
         answered.value = []
     }
+    isOpen.value = false
+    window.location.href = '/questions/1'
+}
+
+
+
+const redo = () => {
     isOpen.value = true
 }
 </script>
