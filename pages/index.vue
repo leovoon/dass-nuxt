@@ -3,6 +3,11 @@
         <MazBtn to="/questions/1" no-underline>
             Start Test
         </MazBtn>
+
+        <MazBtn v-if="result" pastel color="warning" class="maz-mt-2" to="/result" no-underline>
+            Show Previous Result
+        </MazBtn>
+
         <aside :class="{'dark': hasDarkTheme}">
             Please read each question and choose the answer 0,1,2, or 3 that best describes you. 0 being not at all and
             3 being very much.
@@ -38,6 +43,7 @@ import MazDialog from 'maz-ui/components/MazDialog'
 import { useThemeHandler } from 'maz-ui'
 const { hasDarkTheme } = useThemeHandler();
 const isOpen = ref(false)
+const result = useResult();
 
 const cookieConsent = useCookie('cookieConsent')
 
