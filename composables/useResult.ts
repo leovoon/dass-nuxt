@@ -1,6 +1,10 @@
 export default function () {
   const answered = useAnswered()
-  if (Array.isArray(answered.value) && answered.value.length > 0) {
+  const questions = useQuestions()
+  if (
+    Array.isArray(answered.value) &&
+    answered.value.length === questions.value.length
+  ) {
     const result =
       Array.isArray(answered.value) &&
       answered.value.reduce((acc, cur) => {
