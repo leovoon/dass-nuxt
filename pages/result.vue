@@ -34,6 +34,11 @@ definePageMeta({
 const result = useMeaning();
 const isOpen = ref(false)
 
+
+const redo = () => {
+    isOpen.value = true
+}
+
 const confirmRedo = () => {
     const cookie = useCookie('answered');
     const answered = useAnswered()
@@ -46,10 +51,6 @@ const confirmRedo = () => {
 }
 
 
-
-const redo = () => {
-    isOpen.value = true
-}
 </script>
 
 <style scoped>
