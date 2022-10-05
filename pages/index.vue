@@ -1,7 +1,7 @@
 <template>
     <div>
-        <MazBtn to="/questions/1" no-underline>
-            Start Test
+        <MazBtn @click="handleDoTest()" no-underline>
+            {{ result ? 'Redo Test' : 'Start Test' }}
         </MazBtn>
 
         <MazBtn v-if="result" :pastel="!hasDarkTheme" color="warning" class="maz-mt-2" to="/result" no-underline>
@@ -33,6 +33,17 @@
                 </MazBtn>
             </template>
         </MazDialog>
+
+        <MazDialog v-model="isOpenRedo">
+            <div class="maz-text-center maz-w-full maz-p-4">
+                This will clear your saved result. Are you sure?
+            </div>
+            <template #footer>
+                <MazBtn color="warning" @click="handleRedo()">
+                    Yes
+                </MazBtn>
+            </template>
+        </MazDialog>
     </div>
 
 </template>
@@ -43,9 +54,31 @@ import MazDialog from 'maz-ui/components/MazDialog'
 import { useThemeHandler } from 'maz-ui'
 const { hasDarkTheme } = useThemeHandler();
 const isOpen = ref(false)
+const isOpenRedo = ref(false)
 const result = useResult();
 
+
+
 const cookieConsent = useCookie('cookieConsent')
+
+const handleDoTest = () => {
+    if (result) {
+        isOpenRedo.value = true
+        return
+    }
+    navigateTo('/questions/1')
+}
+
+const handleRedo = () => {
+    const cookie = useCookie('answered');
+    const answered = useAnswered()
+    if (cookie) {
+        cookie.value = null
+        answered.value = []
+    }
+    isOpenRedo.value = false
+    window.location.href = '/questions/1'
+}
 
 const handleOk = () => {
     cookieConsent.value = true
