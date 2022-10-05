@@ -31,31 +31,30 @@ useHead({
       href: '/favicon.ico',
     },
     {
-      rel: 'preload',
+      rel: 'prefetch',
       href: '/emotion/extreme.png',
       as: 'image',
     },
     {
-      rel: 'preload',
+      rel: 'prefetch',
       href: '/emotion/mild.png',
       as: 'image',
     },
     {
-      rel: 'preload',
+      rel: 'prefetch',
       href: '/emotion/moderate.png',
       as: 'image',
     },
     {
-      rel: 'preload',
+      rel: 'prefetch',
       href: '/emotion/normal.png',
       as: 'image',
     },
     {
-      rel: 'preload',
+      rel: 'prefetch',
       href: '/emotion/severe.png',
       as: 'image',
     }
-
   ],
 })
 
