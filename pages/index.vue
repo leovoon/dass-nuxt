@@ -88,11 +88,14 @@ const handleOk = () => {
 
 onMounted(() => {
     if (!cookieConsent.value) {
-        setTimeout(() => {
+        const timeout = setTimeout(() => {
             isOpen.value = true
         }, 2000)
     }
 
+    return () => {
+        clearTimeout(timeout)
+    }
 })
 
 </script>
