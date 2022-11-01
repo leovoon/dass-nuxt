@@ -5,4 +5,7 @@ export default defineNuxtConfig({
     transpile: ['maz-ui'],
     analyze: true,
   },
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
+  },
 })
