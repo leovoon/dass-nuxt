@@ -1,8 +1,8 @@
 
 <template>
     <main class="app" :class="{
-    '--has-dark-theme': hasDarkTheme,
-    '--has-light-theme': hasLightTheme,
+        '--has-dark-theme': hasDarkTheme,
+        '--has-light-theme': hasLightTheme,
     }">
         <!-- Theme switching -->
         <div>
@@ -17,6 +17,7 @@
                 </MazBtn>
             </nav>
         </div>
+        <ProgressBar v-if="isAnswering" :progress="progress" />
         <slot />
     </main>
 </template>
@@ -43,6 +44,13 @@ const {
     hasDarkTheme,
     hasLightTheme
 } = useThemeHandler(options)
+const answered = useAnswered()
+const route = useRoute()
+const questionTotal = computed(() => useQuestions().value.length)
+const progress = computed(() => (answered.value.length / questionTotal.value) * 100)
+const isAnswering = computed(() => route.name === 'questions-id')
+
+
 
 onMounted(() => {
     autoSetTheme()
