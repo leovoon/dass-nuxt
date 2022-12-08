@@ -63,15 +63,15 @@ useHead({
 <style>
 .page-enter-active,
 .page-leave-active {
-  transition: all 0.4s;
+  transition: all 0.25s;
 
 }
 
 .page-enter-from,
 .page-leave-to {
   opacity: 0;
-  transform: translateY(5%);
-  filter: blur(0.6rem);
+  transform: translateY(2%);
+  filter: blur(0.3rem);
 }
 </style>
 
