@@ -63,7 +63,7 @@ _DASS_ means Depression Anxiety Stress Scale. Check your depression, anxiety, an
 
 ### Built With
 
-- [Nuxt3 RFC](https://v3.nuxtjs.org/)
+- [Nuxt3 Stable](https://nuxt.com)
 - [Maz-UI](https://louismazel.github.io/maz-ui-3/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
